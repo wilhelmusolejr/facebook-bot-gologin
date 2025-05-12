@@ -183,3 +183,14 @@ let profiles = [
 
 let prof = [data.profiles[0]];
 await processAccountsWithDelay(data.profiles, 3);
+
+setInterval(() => {
+  try {
+    processAccountsWithDelay(data.profiles, 3);
+  } catch {
+    console.log("Error in interval");
+  }
+}, 30 * 60 * 1000); // 30 minutes in ms
+
+// Run immediately once at start
+processAccountsWithDelay(data.profiles, 3);
