@@ -1,6 +1,7 @@
 import puppeteer from "puppeteer";
 import GoLogin from "gologin";
 import fs from "fs";
+import dotenv from "dotenv";
 
 import {
   scroll_feed,
@@ -13,8 +14,9 @@ import {
 import { delay } from "./helper_function.js";
 
 const { connect } = puppeteer;
+dotenv.config();
 
-const TOKEN = "";
+const GOLOGIN_API_TOKEN = process.env.GOLOGIN_API_TOKEN;
 
 // TARGET POST
 let homepage_url =
